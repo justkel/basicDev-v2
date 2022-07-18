@@ -1,0 +1,22 @@
+
+<%- include("header") -%>
+
+<div class="outerBox">
+  <% for(var i = 0; i<listTitle.length; i++){ %>
+    <%if (listTitle[i].name !== "App.js" && listTitle[i].name !== "Favicon.ico" ) { %>
+
+      <form class="" action="/clear" method="post">
+        <div class="innerBox">
+          <!-- <input type="checkbox" name="newCheck" value="<%=listTitle[i]._id%>" onChange="this.form.submit()"> -->
+          <p class="time"> (<%=  moment(listTitle[i].time).format('llll') %>) </p> <a href=" /<%=listTitle[i].name %>" class="pageLink"> <%= listTitle[i].name %> </a>
+          <button type="submit" name="delButton" class="btn btn" id="delButton" value="<%=listTitle[i]._id%>"><i class="fa fa-trash-o" style="font-size:24px"></i></button>
+        </div>
+      </form>
+
+    <% } %>
+
+  <% } %>
+</div>
+
+
+  <%- include("footer") -%>

@@ -1,0 +1,36 @@
+  <%- include("header") -%>
+
+    <div class="box" id="heading">
+       <!-- <form class="" action="/customPage" method="post">
+        <input class="star1" type="text" name="myCustom" placeholder="Enter Custom Page" autocomplete="off">
+        <button type="submit" class="list1" name="newCustom" >SUBMIT</button>
+      </form> -->
+      <h1 class="myHeader"> <%= listTitle  %> </h1>
+    </div>
+
+    <div class="box">
+
+      <p class="euro pounds">Welcome to your todolist</p>
+
+      <p class="euro">Hit the + to add a new task. <br>
+      Hit the checkbox to delete a task.</p>
+    <%  newListItems.forEach(function(item){ %>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name="checkbox" class="myCheck" value="<%=item._id%>" onChange="this.form.submit()">
+          <p class="naira"><%= item.name %></p>
+        </div>
+        <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+        </form>
+      <% }) %>
+
+
+
+      <form class="item" action="/" method="post">
+        <input class="form-control star" type="text" name="newItem" placeholder="New Task" autocomplete="off">
+        <button type="submit" name="list" class="myList" value="<%= listTitle %>">+</button>
+      </form>
+
+    </div>
+
+    <%- include("footer") -%>

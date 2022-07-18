@@ -1,0 +1,12 @@
+<%- include("header") -%>
+
+<% for(var i = 0; i<listTitle.length; i++){ %>
+  <%if (listTitle[i].name !== "App.js") { %>
+    <div class="sksk">
+      <a href=" /<%=listTitle[i].name %>" class="topic"> <%= listTitle[i].name %> </a>
+    </div>
+  <% } %>
+
+<% } %>
+
+  <%- include("footer") -%>

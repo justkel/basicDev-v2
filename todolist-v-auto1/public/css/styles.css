@@ -1,0 +1,214 @@
+html {
+  background-color: #fff;
+  min-height: 1000px;
+  font-family: 'helvetica neue';
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.myHeader {
+  color: white;
+  padding-bottom: 10px;
+}
+
+
+#autoCreateButton:hover {
+  color: white;
+  background-color: #343A40;
+}
+
+#allPages:hover {
+  color: #071C21;
+}
+
+.pounds {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+
+  padding-top: 8px;
+}
+
+#heading {
+  background-color: #343A40;
+  text-align: center;
+}
+
+.time {
+  width: 40%;
+  font-size: 17px;
+  font-family: Verdana, sans-serif;
+  padding-top: 16px;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked+p {
+  text-decoration: line-through;
+  text-decoration-color: #A683E3;
+}
+
+input.myCheck[type="checkbox"] {
+  margin: 20px;
+  margin-left: 16px;
+}
+
+.euro {
+  font-family: Verdana, sans-serif;
+  margin-left: 16px;
+  text-align: center;
+}
+
+.naira {
+  margin: 0;
+  padding: 20px;
+  font-size: 15px;
+  font-family: Verdana, sans-serif;
+  font-weight: 94;
+  color: #1B1A17;
+}
+
+.pageLink { font-size: 17px; text-decoration: none; font-family: Verdana, sans-serif; width: 20%; }
+.pageLink:hover { text-decoration: none}
+
+form.ghost {
+  margin-top: 10px;
+  margin-left: 841px;
+}
+
+#delButton {
+  height: 35px;
+  color: red;
+}
+
+.innerBox {
+  background-color: #FFFFFF;
+  padding: 30px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
+.innerBox:hover {
+  background-color: #F4F6FA
+}
+
+.outerBox {
+  margin-top: 30px;
+  margin-left: 40px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  width: 810px;
+  background-color: #fff;
+}
+
+.myList:hover {
+  opacity : 0.9;
+  background-color: #343A40;
+}
+
+button.myList {
+  min-height: 50px;
+  text-align: center;
+  width: 50px;
+  border-radius: 50%;
+  font-weight: bold;
+  padding-bottom: 4px;
+  border-color: transparent;
+  background-color: #343A40;
+  color: #fff;
+  font-size: 30px;
+  border-width: 0;
+  margin-left: 10px;
+}
+
+input.star[type="text"] {
+  text-align: left;
+  height: 50px;
+  top: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #EAEAEA;
+  outline-color: hsla(0, 100%, 50%, 0.1);
+  outline-style: none;
+  outline-width: 1px;
+  font-size: 20px;
+  font-weight: 200;
+  width: 313px;
+  margin-left: 16px;
+}
+
+input.star[type="text"]:focus {
+  outline: none;
+}
+
+.img-src {
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%
+}
+
+/* section {
+  background-image: url("https://images.unsplash.com/photo-1598791318878-10e76d178023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+} */
+
+.background-area {
+  background-image: url("https://i.postimg.cc/6p5xtQ1Z/cropped-todo.jpg");
+  /*background-image: url("https://i.postimg.cc/vHyjV6Gq/cropped-todo-2.jpg");*/
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ .register, .login {
+  margin-top: 20px;
+}
+
+.register {
+  margin-right: 30px;
+}
+
+#intro {
+  margin-bottom: 20px;
+}
+
+
+
+footer {
+  color: white;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 20px
+}

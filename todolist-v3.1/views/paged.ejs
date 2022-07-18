@@ -1,0 +1,16 @@
+<%- include("header") -%>
+
+<% console.log(listTitle); %>
+<div class="mkmk">
+  <% for(var i = 0; i<listTitle.length; i++){ %>
+    <%if (listTitle[i].name !== "App.js") { %>
+      <div class="ahvr-animated animated-box sksk">
+       <p class="topic1"> <%= listTitle[i].time %> </p> <a href=" /<%=listTitle[i].name %>" class="topic"> <%= listTitle[i].name %> </a>
+      </div>
+    <% } %>
+
+  <% } %>
+</div>
+
+
+  <%- include("footer") -%>

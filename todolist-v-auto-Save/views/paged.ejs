@@ -1,0 +1,15 @@
+<%- include("header") -%>
+
+<div class="outerBox">
+  <% for(var i = 0; i<listTitle.length; i++){ %>
+    <%if (listTitle[i].name !== "App.js" && listTitle[i].name !== "Favicon.ico" ) { %>
+      <div class="innerBox">
+       <p class="time"> (<%=  moment(listTitle[i].time).format('llll') %>) </p> <a href=" /<%=listTitle[i].name %>" class="pageLink"> <%= listTitle[i].name %> </a>
+      </div>
+    <% } %>
+
+  <% } %>
+</div>
+
+
+  <%- include("footer") -%>
