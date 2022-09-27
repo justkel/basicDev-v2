@@ -80,7 +80,7 @@ input.myCheck[type="checkbox"] {
   margin: 0;
   padding: 20px;
   font-size: 15px;
-  font-family: Verdana, sans-serif;
+  /* font-family: "Verdana, sans-serif"; */
   font-weight: 94;
   color: #1B1A17;
 }

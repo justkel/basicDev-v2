@@ -203,6 +203,11 @@ input.star[type="text"]:focus {
   margin-bottom: 20px;
 }
 
+.connect-flash {
+  background-color: #94B49F;
+  padding: 20px;
+}
+
 
 
 footer {

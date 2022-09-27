@@ -7,6 +7,9 @@ const _ = require("lodash");
 const date = require(__dirname + "/date.js")
 const moment = require("moment");
 const port = process.env.PORT || 3000;
+const flash = require('connect-flash');
+const cookieParser = require('cookie-parser');
+const config = require('config.json');
 const session = require('express-session');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
@@ -14,26 +17,33 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const app = express();
 
+app.use(cookieParser(config.cookieSecret))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
+app.use(express.json());
 app.set("view engine", "ejs");
 app.locals.moment = moment;
 
 
 mongoose.connect("mongodb://localhost:27017/todolist-auto2", {useNewUrlParser: true, useUnifiedTopology: true});
 
+app.use(flash());
+// app.use(cookieParser('keyboard cat'));
+
 app.use(session({
   secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000}
 }))
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 const userSchema = new mongoose.Schema ({   //format introduced as a requirement of mongoose-encryption
-  email: String,
-  password: String
+  name: String,
+  password: String,
+  username: String
 })
 
 userSchema.plugin(passportLocalMongoose);
@@ -42,8 +52,8 @@ const User = new mongoose.model("User", userSchema)
 
 passport.use(User.createStrategy());
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+ passport.serializeUser(User.serializeUser());
+ passport.deserializeUser(User.deserializeUser());
 
 
 const itemsSchema = ({  // Mongoose Schema
@@ -121,6 +131,18 @@ app.get("/home/:customListName", (req, res) => { //dynamic website routing
    })
 })
 
+// app.get("home/:userId", (req, res) => {
+//   const currentUserId = req.params.userId
+//
+//   User.findOne({_id: currentUserId} , function(err, foundId){
+//     if(!err){
+//       if(!foundId){
+//         const user = new
+//       }
+//     }
+//   })
+// })
+
 app.get("/home/saved-pages/all", function(req, res){
 
    List.find({}, function(err, docs) {
@@ -141,7 +163,8 @@ app.get("/", function(req, res){
 })
 
 app.get("/register", function(req, res){
-  res.render("register")
+  const yourName = req.flash('user')
+  res.render("register", {yourName})
 })
 
 app.get("/login", function(req, res){
@@ -212,13 +235,14 @@ app.post("/clear", function(req, res){
 })
 
 app.post("/register", function(req, res){
-  User.register({username: req.body.username}, req.body.password, function(err, user){
+  User.register({username: req.body.username, name: req.body.email}, req.body.password, function(err, user){
     if(err){
       console.log(err);
       res.redirect("/register")
     } else {
       passport.authenticate("local")(req, res, function(){
-        res.redirect("/home")
+        req.flash('user', "Welcome, ", req.body.username)
+        res.redirect("/register")
       })
     }
   })
@@ -240,7 +264,6 @@ app.post("/login", function(req, res){
     }
   })
 })
-
 
 
 app.listen(port, function(){
